@@ -24,11 +24,9 @@ class App extends React.Component {
 
     Winner() {
         const board = this.state.values
-        let win = false;
         // Check rows for a win
         for (let i = 0; i < 3; i++) {
             if (board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][0] !== '') {
-                win = true
                 return (
                     <p>
                         winner: {board[i][0]}, positions: {[i, 0]}, {[i, 1]}, {[i, 2]}
@@ -42,7 +40,6 @@ class App extends React.Component {
         // Check columns for a win
         for (let i = 0; i < 3; i++) {
             if (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[0][i] !== '') {
-                win = true
                 return (
                     <p>
                         winner: {board[0][i]}, positions: {[[0, i], [1, i], [2, i]]}
@@ -54,7 +51,7 @@ class App extends React.Component {
 
         // Check diagonals for a win
         if (board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[0][0] !== '') {
-            win = true
+
             return (
                 <p>
                     winner:{board[0][0]} , positions: {[[0, 0], [1, 1], [2, 2]]}
@@ -63,7 +60,7 @@ class App extends React.Component {
             );
         }
         if (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[0][2] !== '') {
-            win = true
+
             return (
                 <p>
                     winner: {board[0][2]}, positions: {[[0, 2], [1, 1], [2, 0]]} }
@@ -72,8 +69,6 @@ class App extends React.Component {
 
             );
         }
-
-
 
 
     }
